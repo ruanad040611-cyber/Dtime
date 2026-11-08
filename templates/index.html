@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dtime - Relógio e cronômetro</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="shortcut icon" href="/Dtime/img/images.png" type="image/x-icon">
+    <meta http-equiv="refresh" content="1">
+</head>
+<body>
+    <main>
+        <section class="relogio">
+            <h1>Relógio</h1>
+            <p id="hora-atual">{{ hora }}</p>
+        </section>
+
+        <section class="cronometro">
+            <h1>Cronômetro</h1>
+            <p>{{ cronometro }}</p>
+            <form class="botoes" method="post">
+                {% if rodando %}
+                    <button name="acao" value="pausar" type="submit">Pausar</button>
+                {% else %}
+                    <button name="acao" value="iniciar" type="submit">Iniciar</button>
+                {% endif %}
+                <button name="acao" value="zerar" type="submit">Zerar</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
